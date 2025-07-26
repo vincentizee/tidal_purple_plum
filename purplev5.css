@@ -657,8 +657,6 @@ button[data-test="edit-button"],button[data-test="public-toggle-button"] {
 button[data-test="play-all"], button[data-test="shuffle-all"],
 button[data-test="play-all-scrolled"], button[data-test="shuffle-all-scrolled"] {
   height: 50px; 
-  padding: 0 0 0 0; /*0(px lower text) 0(px higher text) 0(px left text) 0(px right text)*/
-  display: flex;
   justify-content: center; /* horizontally centers */
   background-color: var(--kl-tile-background-color);
   color: var(--kl-text-color) !important;
