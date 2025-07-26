@@ -5,7 +5,7 @@ Based on TidalCustomTheme by Carlos Miranda, highly modified.
 
 ✅ Requirements
 
-    TidaLuna
+    TidaLuna(https://github.com/Inrixia/TidaLuna)
 
     Themer Plugin
 
