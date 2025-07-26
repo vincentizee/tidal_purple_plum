@@ -1,0 +1,800 @@
+/*
+{
+  "name": "Purple Plum"
+  "author": "Vincenti Zghra",
+  "description": "Fully customizable theme for you to edit.(The original CSS belonged to Carlos Miranda)"
+}
+*/
+
+:root 
+{
+    --wave-color-solid-accent-fill: var(--kl-info-text-color);
+    --wave-color-solid-rainbow-yellow-fill: white;
+    --wave-color-solid-contrast-fill: white;
+    --wave-color-solid-base-brighter: var(--kl-home-background-color);
+    --wave-color-opacity-contrast-fill-thin: #7b71dd33;
+    --wave-color-opacity-contrast-fill-thick: #e4b5ff;
+    /* Scrollbar */
+    --kl-scrollbar-width: 15px;
+    --kl-scrollbar-color: #7c1770;
+    --kl-scrollbar-background-color: #652a80;
+	--kl-scrollbar-border-color: #81163d;
+
+    /* Sidebar */
+    --kl-sidebar-color: color-mix(
+		in srgb,
+		#0d041b,
+		transparent 0%
+	);
+
+    /* Home background */
+    --kl-home-background-color: color-mix(
+		in srgb,
+		#4b1a55,
+		transparent 0%
+	);
+
+    /* Header background */
+    --kl-header-background-color: color-mix(
+		in srgb,
+		#ff90ba,
+		transparent 10%
+	);
+
+    /* Footer background */
+    --kl-footer-background-color: color-mix(
+		in srgb,
+		#0d041b,
+		transparent 10%
+	);
+
+    /* Popup colors */
+    --kl-popup-background-color: color-mix(
+		in srgb,
+		#180825,
+		transparent 2%
+	);
+
+	/* Tile color (like the arrows, notification)  */
+    --kl-tile-background-color: color-mix(
+		in srgb,
+		#351141,
+		transparent 0%
+	);
+    --rainbow-gradient2: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #400952 20%,
+    #3f0841 60%,
+    transparent 200%
+  );
+    --rainbow-gradient: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #4c195c 20%,
+    #531555 60%,
+    transparent 200%
+  );
+	--kl-text-color: #ff487f;
+    --kl-selected-text-color: #ff65d1;
+	--kl-currently-playing-color: #c684d6;
+	--kl-hover-text-color: #926eb6c0;
+    --kl-hover-background-color-transparent: #926eb621;
+	--kl-header-text-color: #dd378a;
+    --kl-info-text-color: #cd9fd8;
+    --kl-update-badge: #fcb194;
+	--kl-artist-color: var(--kl-text-color);  
+	--blur-radius: 12px;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* Text color */
+/*Home,Explore,Videos*/
+.wave-text-body-demi,
+/*MyCollection titles*/
+.wave-text-description-demi,
+/*Playlist titles*/
+.wave-text-description-medium,
+/*CreatedBy*/
+._createdBy_13b248a,
+/*Playlist artist name*/
+._item_39605ae,
+/*Artist-radio*/
+.wave-text-caption-demi,
+/*Time on tracks*/
+._rowContainer_ebb4cfc,
+[class^="_titleColumn_"],
+[class^="_albumText_"],
+[class^="_dateAddedColumn_"],
+[class^="_contributionText_"],
+[class^="_releasedDateColumn_"],
+[class^="_timeColumn_"],
+[class*="_descriptionText_"],
+[class*="_descriptionText_"]>span,
+[class^="_selectItemTitle_"],
+[class^="_actionTextInner_"], 
+[class^="_lyricsText_"]>div,
+[class^="_lyricsText_"]>span,
+.wave-text-headline-bold,
+[class^="_indexNumber_"],
+.wave-text-body-medium,
+div [class*="_searchField_"]::placeholder,
+div [class*="_searchField_"],
+[class^="_smallButtons_"]>button>div>span,
+[class^="_headerContainer_"]>[class^="_dataContainer_"]>[class^="_detailContainer"]>h2,
+[class^="_headerContainer_"]>[class^="_dataContainer_"]>[class^="_detailContainer"]>div>div>span
+{
+	color: var(--kl-text-color) !important;
+}
+[class="wave-text-body-demi _text_7013572"]{
+    color: #ff89e5 !important;
+}
+[class^="_header_"] > [class^="_title_"] {
+  margin-top: 11px;
+  margin-left: 17px !important;  /* adjust as needed */
+}
+[class^="_container_"][data-type="module"][data-track--module-id="suggestedItemsForPlaylist"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--kl-tile-background-color);
+  z-index: -2;
+}
+
+/* Decorative circle */
+[class^="_container_"][data-type="module"][data-track--module-id="suggestedItemsForPlaylist"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #fcb194;
+  clip-path: circle(200px at -5% 10%);
+  z-index: -1;
+}
+[class^="_container_"][data-type="module"][data-track--module-id="suggestedItemsForPlaylist"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #fcb194;
+  clip-path: circle(200px at 110% 100%);
+  z-index: -1;
+}
+a[data-test="playqueue-item-title"]:hover,
+[data-test="now-playing-track-title"]:hover{
+  text-decoration: underline;
+}
+/*compact padding between sidebar items*/
+a[data-test^="my-playlists-"],
+a[data-test="menu-create-folder-or-playlist-item"] {
+  height: 24px !important;
+}
+[class^="_container_"][data-type="module"][data-track--module-id="suggestedItemsForPlaylist"] {
+  background: transparent;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  overflow: hidden; /* ensures content inside doesn’t spill past corners */
+  position: relative;
+  z-index: 1;
+}
+/* sidebar hover color */
+nav._sidebar_54f18f3._isLoggedIn_d18f017:hover {
+  background: white !important;
+}
+/* svg */
+._feedBell_95247e3,
+/*Like/Add to playlist icons*/
+svg
+{
+    color: var(--kl-text-color) !important;
+	fill: var(--kl-text-color) !important;
+}
+
+/* Selected category on sidebar */
+._active_3451dba:is(a._sidebarItem_730d27e,button._sidebarItem_730d27e) span,
+a[class^="_searchPill_"][class*="_active_"] > span
+{
+    color: var(--kl-selected-text-color) !important;
+}
+/* Track selected background color on albums, plalists and tracklists(not artist page) */
+[class*="_tableRowSelected"] {
+  background: var(--rainbow-gradient2);
+  border-radius: 3px;  /* Rounded edges */
+}
+
+/* Currently playing */
+[class*=_tableRowIsPlaying_]>div>div>span,
+[class*=_tableRowIsPlaying_]>div>span>a,
+[class*=_tableRowIsPlaying_]>div>a,
+[class*=_tableRowIsPlaying_]>div>time,
+[class*=_tableRowIsPlaying_]>div,
+[class*=_tableRowIsPlaying_]>div>div,
+[class^="_progressBarWrapper_"]
+{
+	color: var(--kl-currently-playing-color) !important;
+}
+[class*=_tableRowIsPlaying_]>div>div>button>svg,
+[class*=_tableRowIsPlaying_]>div>span>div>span>svg
+{
+	fill: var(--kl-currently-playing-color) !important;
+}
+
+/* Hover category on sidebar */
+:is(a._sidebarItem_730d27e,button._sidebarItem_730d27e):hover,
+[class^="_rowContainer_"]:hover,
+[class^="_tooltipContainer_"]>button:hover,
+[class*="_tooltipText_c55e0f6"],
+[class*="_bottomRightToolTip_"]:after,
+[class*="_tooltipText_c55e0f6"]::after,
+._geometry_ade1caf ._fx_e9c441f,
+button[class*="_feedBell_"]:hover,
+[class*="_selectItem_"]:hover,
+[class^="_fxContainer"][class*="css-"],
+[class*="_createNewPlaylist_"]:hover,
+[class*="_audioQualityContainerHover_"]:hover,
+[class^="_feedSidebarItemDiv_"]:hover,
+[class^="_buttons_"]>button:hover,
+[class^="_tabItem_"]:hover:not([class*="_activeTab_"]) ,
+[class^="_headerButtons_"]>button:hover,
+[class^="_details_"] > [class*="_contextMenuButton_"]:hover,
+button[class^="_clearRecentSearchesButton"]:hover,
+div[class^="_searchContainer_"]:hover,
+[class^="_container_"]>button[class*="_navigationArrows_"]:hover,
+[class^="_container_"]>button[class*="_primary_"]:hover,
+[class^="_container_"]>button[class*="_secondary_"]:hover,
+[class^="_smallButtons_"] > button:hover,
+[class^="_viewAllButton_"]:hover,
+[class*="_scrollingButton_"]:hover,
+[class^="_searchPills_"]>a[class^="_searchPill_"]:hover:not([class*="_active_"]),
+div[class*="_arrowsContainer_"] > button:hover,
+div[class*="_arrowsContainer_"] >div>button:hover
+{
+	opacity: 1;
+	background-color: var(--kl-hover-text-color) !important;
+}
+[class^="_tableRow_"]:hover
+{
+    opacity: 1;
+	background-color: var(--kl-hover-text-color) transparent 20% !important;
+    border-radius: 0px;  /* Rounded edges */
+    
+}
+
+/* artist title color in playing track */
+.artist-link
+{
+	color: var(--kl-artist-color);
+}
+
+/* playing from ... */
+.wave-text-capital-demi, 
+._title_30ce8e7
+{
+	color: var(--kl-header-text-color);
+}
+
+/*MyCollection,PLAYLISTS titles*/
+._headerText_65167b2,
+._listHeader_27d5796,
+._headerText_81dc97f,
+/* TrackRadio/CreatedByMe/Artist at the top of home screen */
+:is(._shortcutItem_6c8e7b4>:first-child) :nth-child(2),
+[class*="_title_"],
+[class^="_cardContainer_"]>div[class^="_card_"]>div>div[class^="_textWrapper_"]>span,
+[class^="_headerColumnSortable_"],
+[class^="_headerColumn_"],
+.wave-text-subheadline-bold,
+.wave-text-large-title-bold,
+[class^="_selectHeader_"],
+.playlist-creator[class*="_artistCreatorText_"],
+[class^="_trackList_"]>thead>tr>th>span
+{
+	color: var(--kl-header-text-color) !important;
+}
+
+
+/* overlays */
+:is([class^="_background_"] [class^="_image_"]):before 
+{
+	background-image: none
+}
+
+[class^="_headerContainer_"]>[class^="_background_"]
+{
+	background: var(--kl-home-background-color)
+}
+/* Artist name */
+[class^="_detailContainer_32ed9f5"] {
+    background: linear-gradient(
+        to bottom,
+        #041927,
+        transparent 170%
+        
+    );
+    padding: 8px 8px 8px 8px;
+    max-width: 400px;
+    /*border: 2px solid var(--kl-scrollbar-border-color); /* Border scrollbar color */
+    line-height: 0;
+    margin: 0px;
+    padding-left: 60px;
+    padding-top: 0px;
+    padding-bottom: 32px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 13px;
+    transform: translateY(72px) translateX(-61px);
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 0;
+}
+[class^="_detailContainer_32ed9f5"]::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateY(3px); /* only vertical shift */
+  width: calc(90% - 10px);
+  height: 48px;
+  background: linear-gradient(
+        to bottom,
+        #2e6c96,
+        transparent 120%
+  );
+  border-top-left-radius: 13px;
+  border: 2px solid #4b1a55;
+  z-index: -1; /* place under text */
+  pointer-events: none;
+}
+h2[data-test="artist-name"].wave-text-title-bold[class*="_titleText_"] {
+    color: #f1c9c9 !important;
+    z-index: 3;
+}
+/* notification color fix*/
+._notification_99c9c6e,[data-test="confirm-modal"] {
+  background-color: var(--kl-popup-background-color) !important; /* or var(--kl-tile-background-color) */
+  color: #8a0022 !important;
+}
+._modalBody_33fe980{
+    border-top:24px solid var(--kl-popup-background-color);
+}
+/* refresh list button */
+._modalButtonPrimary_023fd74,._button_3357ce6{
+    color: var(--kl-text-color);
+    font-weight:bold;
+    background: #11012b1f;
+    transition: background 0.2s;
+}
+._modalButtonPrimary_023fd74,._button_3357ce6:hover{
+    background: #fcb194;
+    transition: 0.3s;
+}
+[class^="_actionContainer_"]
+{
+	margin-top: 30px;
+}
+
+[class^="_smallButtons_"] 
+{
+    height: 0%;
+}
+
+[class^="_smallButtons_"] > button 
+{
+  background-color: var(--kl-tile-background-color);
+  padding-left: 20px;    
+  padding-right: 20px;    
+  min-height: 60px;     /* Minimum height */
+  max-height: 80px;     /* Maximum height */
+  width: auto;  /* Adjust the width */
+  max-width: 400px;  /* Prevents it from being too wide */
+  border-radius: 15px;  /* Rounded corners */
+  box-sizing: border-box;  /* Makes padding part of the width */
+  white-space: nowrap; /* Prevents text from wrapping onto a new line */
+  position: relative;
+}
+
+/* artist overlay */
+[class^="_overlay_"],
+[class^="_feed_"] > [class^="_list_"] > [class^="_container_"]> div > div::before
+{
+	background: linear-gradient(var(--kl-home-background-color), color-mix(
+		in srgb,
+		var(--kl-tile-background-color),
+		transparent 90%
+	));
+} 
+
+[class^="_shortcutItem_"]::after
+{
+		background: linear-gradient(var(--kl-home-background-color), color-mix(
+		in srgb,
+		var(--kl-popup-background-color),
+		transparent 1%
+	));
+}
+
+/*
+
+ Scrollbar  
+ 
+ */
+#main::-webkit-scrollbar,
+#sidebar::-webkit-scrollbar,
+[class*="_playQueueItemsList_"]::-webkit-scrollbar,
+[class^="_nativeRange_"][type=range]::-webkit-slider
+{
+  width: var(--kl-scrollbar-width); /* Adjust the width of the scrollbar */
+}
+
+/* For the draggable thumb part */
+#main::-webkit-scrollbar-thumb,
+#sidebar::-webkit-scrollbar-thumb,
+[class*="_playQueueItemsList_"]::-webkit-scrollbar-thumb,
+[class^="_nativeRange_"][type=range]::-webkit-slider-thumb
+{
+  background-color: var(--kl-scrollbar-color); /* Thumb color */
+  border: 2px solid var(--kl-scrollbar-border-color); /* Border scrollbar color */
+  border-radius: 20px;
+}
+
+/* For the track (background) of the scrollbar */
+#main::-webkit-scrollbar-track,
+#sidebar::-webkit-scrollbar-track,
+[class*="_playQueueItemsList_"]::-webkit-scrollbar-track,
+[class^="_nativeRange_"][type=range]::-webkit-slider-runnable-track
+ {
+  background-color: var(--kl-scrollbar-background-color); /* Track color */
+  border-radius: 20px;
+}
+[class^="_nativeRange_"][type=range]::-webkit-slider-thumb
+{
+	width: 7px; /* Adjust the width of the volume thumb */
+}
+
+/* Sidebar */
+#sidebar,
+#playQueueSidebar,
+#feedSidebar,
+[class^="_smallHeader_"]::before
+{
+ 	background-color: var(--kl-sidebar-color) !important;
+	background-image: none;
+}
+
+/* Home background */
+#main,
+[class^="_smallHeader_"],
+/*[class^="_nowPlayingContainer_"],*/
+[class^="_resultsPageWrapper_"] > div > div[class^="_container_"]::before,
+[class^="_resultsPageWrapper_"] > div > div[class^="_container_"]
+{
+    background: var(--kl-home-background-color) !important;
+}
+
+/*Searchresult divider why is it there? */
+[class^="_resultsPageWrapper_"] > div > div[class^="_container_"] > div[class^="_divider_"]
+{
+    background-color: transparent !important;
+}
+
+
+/*
+
+Footer
+
+*/
+[class^="_bar_"]
+{
+	background-color: var(--kl-footer-background-color) !important;
+}
+
+#footerPlayer {
+	backdrop-filter: blur(var(--blur-radius));
+}
+
+#footerPlayer
+{
+ 	background-color: var(--kl-footer-background-color) !important;
+}
+
+/* most buttons */
+.neptune-card,
+[class^="_tooltipContainer_"]>button,
+[class^="_container_"][class*="_fillDark_"]>div,
+[class*="_searchFieldWithPopover_"]>div,
+#main>div>div[class^="_defaultStyles_"]>div>div[class^="_container_"],
+[class^="_myTracks_"]>[class*="_myTracksFilter_"],
+[class^="_myTracks_"]>[class*="_myTracksFilter_"]>input::placeholder,
+[class^="_container_"] [class*="_searchFieldWithPopover_"] .searchFieldWithinSearchFieldWithPopover,
+button[class*="_feedBell_"],
+[class^="_buttons_"]>button,
+[class^="_headerButtons_"]>button,
+[class^="_shortcutItem_"]>div[class^="_iconWrapper_"],
+button[class^="_clearRecentSearchesButton"],
+[class^="_container_"]>button[class*="_navigationArrows_"],
+[class^="_container_"]>button[class*="_primary_"],
+[class^="_container_"]>button[class*="_secondary_"],
+[class^="_viewAllButton_"],
+[class*="_scrollingButton_"],
+[class^="_searchPills_"]>a[class^="_searchPill_"],
+div[class*="_arrowsContainer_"] > button
+{
+	color: var(--kl-text-color);
+	background-color: var(--kl-tile-background-color) !important;
+}
+
+button[class^="_clearRecentSearchesButton"]
+{
+    border: none;
+}
+
+
+[data-type="page"],
+.__NEPTUNE_PAGE {
+	padding-bottom: 128px !important;
+}
+
+[class^="_containerRow_"] {
+	max-height: none !important;
+}
+
+[class^="_mainContainer_"] {
+	height: 100vh !important;
+	background-color: inherit;
+}
+
+[class^="_bar_"] {
+	position: absolute;
+	z-index: 100;
+	backdrop-filter: blur(var(--blur-radius));
+}
+
+[class^="_sidebarWrapper"],
+[class^="_contentArea"],
+#main {
+	padding-top: 30px;
+}
+
+
+/* popups, play-queue */
+._fxContainer_c9d502b:hover{
+    background-color: var(--kl-hover-background-color-transparent)!important;
+}
+/* 3 dots top left*/
+[class^="_contextMenu_"],
+[class^="_subMenu_"],
+[class^="_dialog_"],
+.popoverWithinSearchFieldWithPopover>div[class^="_container_"]
+{
+	background-color: var(--kl-popup-background-color) !important;
+}
+
+/* volume bar background */
+[class*="_nativeRange_"]
+{
+	background-color: var(--kl-popup-background-color) !important;
+}
+
+[class^="_sidebarWrapper_"] {
+	padding-bottom: 96px;
+}
+
+/* Remove bottom gradient */
+[class^="_bottomGradient_"]
+{
+	background: none;
+}
+
+/* Blur background of homepage shortcut items */
+@container (width > 200px) {
+	[class*="_shortcutItem_"]::after {
+		backdrop-filter: blur(8px);
+	}
+}
+
+._activeTab_f47dafa
+{
+    background-color: var(--kl-tile-background-color)
+}
+/* Style all artist header buttons */
+[data-test="header-controls"] button,
+[data-test="header-controls"] a {
+  background-color: #230931 !important;
+  border-radius: 8px !important;      /* Reduce or increase roundness */
+  border: 1px solid #cdb4db; /* Add visible outline */
+  padding: 6px 12px !important;
+  color: var(--kl-text-color) !important;
+  box-shadow: none !important;
+  transition: background 0.1s ease;
+}
+._dataContainer_66f4f40
+{
+    margin-top: none !important;
+}
+.MuiTypography-root.MuiTypography-subtitle2 {
+  color: #d4428b !important;
+}
+/* Unified font-weight(boldness) for titles, album and artist names */
+[class*="_tableRow"][data-test="tracklist-row"],
+[data-test="table-cell-album"],[class="_timeColumn_3cd7564"],
+[class*="wave-text-description-medium "],[data-test="grid-item-detail-text-title-artist"]{
+  font-weight: 700;
+}
+
+html, body, #main {
+  height: auto !important;
+  min-height: 100vh !important;
+  padding-bottom: 80px !important;  /* adjust based on footer height */
+  box-sizing: border-box;
+}
+span[class*="_title_"] {
+  color: var(--kl-text-color) !important;
+}
+/* Style all artist header buttons */
+[data-test="header-controls"] button,
+[data-test="header-controls"] a {
+  border-radius: 8px !important;      /* Reduce or increase roundness */
+  border: 1px solid var(--kl-text-color); /* Add visible outline */
+  padding: 6px 12px !important;
+  color: var(--kl-text-color) !important;
+  box-shadow: none !important;
+  transition: background 0.1s ease;
+}
+/* Fav, share, radio, buttons */
+button[data-test="favorite-button"],a[data-test="mix-button"],
+button[data-test="share-button"],button[data-test="more-button"],
+button[data-test="credits-button"],button[data-test="show-context-menu-button"],
+button[data-test="edit-button"],button[data-test="public-toggle-button"] {
+  background: var(--kl-tile-background-color) !important;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 13px;
+}
+/* Play and Shuffle homogenization*/
+[data-test="play-all"],[data-test="shuffle-all"]
+,button[data-test="play-all"],button[data-test="shuffle-all"],
+button[data-test="play-all-scrolled"],button[data-test="shuffle-all-scrolled"] {
+  background-color: var(--kl-tile-background-color);
+  color: var(--kl-text-color) !important;
+  border: 1px solid var(--kl-text-color);
+  border-radius: 15px !important;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3) !important;
+}
+[data-test="play-all"]:hover,
+[data-test="shuffle-all"]:hover,
+button[data-test="play-all-scrolled"]:hover,
+button[data-test="shuffle-all-scrolled"]:hover {
+  background-color: #ffffff;
+}
+[data-test="play-all"] *:not(svg):not(path),
+[data-test="shuffle-all"] *:not(svg):not(path),
+button[data-test="play-all"] *:not(svg):not(path),
+button[data-test="shuffle-all"] *:not(svg):not(path) {
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+/* Optional: improve hover */
+[data-test="header-controls"] button:hover,
+[data-test="header-controls"] a:hover {
+  background-color: var(--kl-hover-text-color) !important;
+}
+/* Fix for view-all spacing*/
+a[data-test="track-list-view-all"] {
+  background-color: var(--kl-tile-background-color) transparent !important;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 6px !important;
+  border-radius: 6px;
+  border: solid 1px;
+}
+a[data-test="view-all-link"] {
+  background-color: var(--kl-tile-background-color) transparent !important;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 6px !important;
+  border-radius: 6px;
+  transform: translateY(-2px);
+  border: solid 1px;
+}
+/* fix for flex artifact on selected items */
+._coverColumn_0ef67fe {
+    flex: 0 0 44px ;
+}
+/* Fix for stubborn ellipsis overflow */
+[data-test="tracklist-row"] *,[data-test="footer-track-title"] *,
+._link_2adc42a {
+  color: var(--kl-text-color) !important;
+}
+
+/* Add background to TopTracks*/
+[class*="_container_928ac6c"]{
+  background: var(--rainbow-gradient);
+  padding: 20px;
+  border-radius: 20px;
+}
+/* Removes item selection outline artifact */
+*:focus {
+  outline: none !important;
+}
+/*[data-test="now-playing-track-title"]{
+  color: var(--kl-currently-playing-color) !important;
+}*/
+/* themable underlines(follows font) */
+[data-test="footer-track-title"] * {
+  color: var(--kl-currently-playing-color) !important;
+}
+[class*=_tableRowIsPlaying_] * {
+  color: var(--kl-currently-playing-color);
+}
+[data-test="now-playing-track-title"] a:hover {
+  text-decoration: none;
+}
+._textContainer_665d6bb a:hover {
+  text-decoration: none !important;
+}
+[data-test="now-playing--suggestion"] a:hover {
+  color: var(--kl-text-color) !important;
+}
+a[data-test="playqueue-item-title"]:hover {
+    color: var(--kl-text-color);
+}
+a[data-test="grid-item-detail-text-title-artist"]:hover {
+  text-decoration: underline !important;
+}
+/* Now playing(fullscreen) mode background(disables album cover gradient transition) */
+[class*="_nowPlayingContainer_"] {
+  background-image: linear-gradient(#3b208b 0%, #22155000 90.67%) !important;
+  transition: all 0.6s ease-in-out;
+  min-height:100px;
+}
+._paragraphText_1b2f746{
+    color:var(--kl-info-text-color);
+}
+/* artist bio */
+[class*="ReactModal__Content"],_body_c90abed{
+    background-image: linear-gradient(#3b208b 0%, #22155000 130%)!important;
+
+}
+._subtitle_0d51a75, ._bodyText_0621ac7,._credits_5b6d751{
+    color: var(--kl-info-text-color) !important;
+}
+._bodyText_0621ac7 a{
+    color:var(--kl-header-background-color);
+}
+._body_c90abed {
+  padding-top: 24px;
+  border: none !important;
+}
+/* Border fix on release notes */
+._modalBody_33fe980{
+  padding-top: 24px;
+  border: none !important;
+}
+[data-test="update-badge"]
+{
+    background: var(--kl-update-badge) !important;
+}
+
+._modalBody_33fe980::-webkit-scrollbar-track{
+  margin-top:-50px;
+  background-color: var(--kl-scrollbar-background-color) !important;
+}
+._modalBody_33fe980::-webkit-scrollbar-thumb {
+  opacity: 1;
+  background-color: var(--kl-scrollbar-color); /* or any color */
+  border-radius: 4px;
+  border: 1px solid rgb(88, 15, 28);
+}
+::-webkit-scrollbar-track {
+  margin-top:-50px;
+  background-color: var(--kl-scrollbar-background-color) !important;
+}
+/* Credits background and fixes */
+[class*="_mediaCredits_"] {
+  background-color: var(--kl-home-background-color)!important;
+}
+[class*="_divider_"] {
+  background-color: var(--kl-info-text-color) !important;
+  height: 1px;
+}
