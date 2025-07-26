@@ -653,12 +653,17 @@ button[data-test="edit-button"],button[data-test="public-toggle-button"] {
   border-radius: 13px;
 }
 /* Play and Shuffle homogenization*/
-[data-test="play-all"],[data-test="shuffle-all"]
-,button[data-test="play-all"],button[data-test="shuffle-all"],
-button[data-test="play-all-scrolled"],button[data-test="shuffle-all-scrolled"] {
+[data-test="play-all"], [data-test="shuffle-all"],
+button[data-test="play-all"], button[data-test="shuffle-all"],
+button[data-test="play-all-scrolled"], button[data-test="shuffle-all-scrolled"] {
+  height: 50px; 
+  padding: 0 0 0 0; /*0(px lower text) 0(px higher text) 0(px left text) 0(px right text)*/
+  display: flex;
+  justify-content: center; /* horizontally centers */
   background-color: var(--kl-tile-background-color);
   color: var(--kl-text-color) !important;
   border: 1px solid var(--kl-text-color);
+  font-weight: bold;
   border-radius: 15px !important;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3) !important;
 }
